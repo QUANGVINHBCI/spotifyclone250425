@@ -69,3 +69,11 @@ export const myProfile = TryCatch(async (req, res) => {
   const user = await User.findById(req.user._id);
   res.json(user);
 });
+
+// logout
+export const logoutUser = TryCatch(async (req, res) => {
+  res.cookie("token", "", { maxAge: 0 });
+  res.json({
+    message: "Logout Out Successfully",
+  });
+});

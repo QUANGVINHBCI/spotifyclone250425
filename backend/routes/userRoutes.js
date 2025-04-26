@@ -1,6 +1,7 @@
 //
 import express from "express";
 import {
+  logoutUser,
   myProfile,
   registerUser,
   userLogin,
@@ -14,5 +15,6 @@ const router = express.Router();
 router.post("/register", registerUser);
 router.post("/login", userLogin);
 router.get("/me", isAuth, myProfile);
+router.get("/logout", isAuth, logoutUser);
 //
 export default router;
