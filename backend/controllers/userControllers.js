@@ -2,7 +2,6 @@ import { User } from "../models/User.js";
 import bcrypt from "bcrypt";
 import generateToken from "../utils/generateToken.js";
 import TryCatch from "../utils/TryCatch.js";
-// import { User } from "../models/User.js";
 
 // registerUser
 export const registerUser = TryCatch(async (req, res) => {
@@ -63,4 +62,10 @@ export const userLogin = TryCatch(async (req, res) => {
     user,
     message: "User LoggedIN",
   });
+});
+
+// export const myProfile
+export const myProfile = TryCatch(async (req, res) => {
+  const user = await User.findById(req.user._id);
+  res.json(user);
 });
